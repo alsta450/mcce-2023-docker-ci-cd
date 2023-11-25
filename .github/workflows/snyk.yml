@@ -2,7 +2,7 @@ name: Workflow for Maven using Snyk
 on: push
 jobs:
   security:
-    runs-on: ubuntu-latest
+    runs-on: openjdk:17-jdk-alpine
     steps:
       - uses: actions/checkout@master
       # Add this step to make the mvnw script executable
