@@ -1,10 +1,5 @@
 name: Workflow for Maven using Snyk
-on:
-  push:
-    branches: [master]
-    # Remove the line above to run when pushing to master or main
-  pull_request:
-    branches: [master]
+on: []
 jobs:
   security:
     runs-on: openjdk:17-jdk-alpine

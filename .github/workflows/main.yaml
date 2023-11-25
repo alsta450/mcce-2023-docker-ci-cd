@@ -1,0 +1,34 @@
+name: My CI/CD Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Maven
+        uses: ./.github/actions/maven
+        continue-on-error: true
+
+      - name: Run Linter
+        uses: ./.github/actions/linter
+        continue-on-error: true
+
+      - name: Run SNYK
+        uses: ./.github/actions/snyk
+        continue-on-error: true
+
+      - name: Run build
+        uses: ./.github/actions/build
+        continue-on-error: false
+
+      - name: Run push
+        uses: ./.github/actions/push
+        continue-on-error: false
