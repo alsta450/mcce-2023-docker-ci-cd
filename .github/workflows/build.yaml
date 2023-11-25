@@ -23,6 +23,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
+          file: ./Dockerfile
           tags:
             cicd:dev
           push: false

@@ -35,7 +35,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
-          file: ./Dockerfile.build
+          file: ./Dockerfile
           tags:
             ghcr.io/${{github.repository}}/hello-fhb:${{ github.sha }}
           push: true
