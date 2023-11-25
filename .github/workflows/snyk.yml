@@ -14,7 +14,6 @@ jobs:
       # Add this step to make the mvnw script executable
       - name: Make mvnw executable
         run: chmod +x mvnw
-        continue-on-error: true
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven-3-jdk-17@master
         env:
