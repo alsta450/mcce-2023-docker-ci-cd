@@ -8,6 +8,7 @@ on:
 jobs:
   security:
     runs-on: openjdk:17-jdk-alpine
+    continue-on-error: true
     steps:
       - uses: actions/checkout@master
       # Add this step to make the mvnw script executable

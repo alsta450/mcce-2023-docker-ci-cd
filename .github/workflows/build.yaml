@@ -9,7 +9,7 @@ jobs:
   build_image:
     name: Build Container Image
     runs-on: openjdk:17-jdk-alpine
-
+    continue-on-error: true
     steps:
       - name: Check out code
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4

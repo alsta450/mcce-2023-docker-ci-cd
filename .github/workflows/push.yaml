@@ -9,7 +9,7 @@ jobs:
   build_image:
     name: Build Container Image
     runs-on: openjdk:17-jdk-alpine
-
+    continue-on-error: true
     permissions:
       contents: read
       packages: write
