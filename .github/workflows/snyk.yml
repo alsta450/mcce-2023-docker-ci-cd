@@ -1,0 +1,20 @@
+name: Workflow for Maven using Snyk
+on:
+  push:
+    branches: [master]
+    # Remove the line above to run when pushing to master or main
+  pull_request:
+    branches: [master]
+jobs:
+  security:
+    runs-on: ubuntu-22.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@master
+      # Add this step to make the mvnw script executable
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven-3-jdk-17@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
